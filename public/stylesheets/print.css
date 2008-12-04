@@ -1,0 +1,63 @@
+
+body {
+  /* This style is in blueprint, but I think it's annoying and it doesn't work in all browsers.
+   * &:after */
+  /* 
+   * a:visited:after */ }
+  body {
+    line-height: 1.5;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000;
+    background: none;
+    font-size: 10pt; }
+  body .container {
+    background: none; }
+  body hr {
+    background: #ccc;
+    color: #ccc;
+    width: 100%;
+    height: 2px;
+    margin: 2em 0;
+    padding: 0;
+    border: none; }
+    body hr.space {
+      background: #fff;
+      color: #fff; }
+  body h1, body h2, body h3, body h4, body h5, body h6 {
+    font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif; }
+  body code {
+    font: .9em "Courier New", Monaco, Courier, monospace; }
+  body img {
+    float: left;
+    margin: 1.5em 1.5em 1.5em 0; }
+  body a img {
+    border: none; }
+  body a:link {
+    background: transparent;
+    font-weight: 700;
+    text-decoration: underline; }
+  body p img.top {
+    margin-top: 0; }
+  body blockquote {
+    margin: 1.5em;
+    padding: 1em;
+    font-style: italic;
+    font-size: .9em; }
+  body .small {
+    font-size: .9em; }
+  body .large {
+    font-size: 1.1em; }
+  body .quiet {
+    color: #999; }
+  body .hide,
+  body .noprint,
+  body .no-print {
+    display: none; }
+  body address.print-only,   body blockquote.print-only,   body center.print-only,   body dir.print-only,   body div.print-only,   body dd.print-only,   body dl.print-only,   body dt.print-only,   body fieldset.print-only,   body form.print-only,   body frameset.print-only,   body h1.print-only,   body h2.print-only,   body h3.print-only,   body h4.print-only,   body h5.print-only,   body h6.print-only,   body hr.print-only,   body isindex.print-only,   body li.print-only,   body menu.print-only,   body noframes.print-only,   body noscript.print-only,   body ol.print-only,   body p.print-only,   body pre.print-only,   body table.print-only,   body tbody.print-only,   body td.print-only,   body tfoot.print-only,   body th.print-only,   body thead.print-only,   body tr.print-only,   body ul.print-only {
+    display: block; }
+  body a.print-only,   body abbr.print-only,   body acronym.print-only,   body b.print-only,   body basefont.print-only,   body bdo.print-only,   body big.print-only,   body br.print-only,   body cite.print-only,   body code.print-only,   body dfn.print-only,   body em.print-only,   body font.print-only,   body i.print-only,   body img.print-only,   body input.print-only,   body kbd.print-only,   body label.print-only,   body q.print-only,   body s.print-only,   body samp.print-only,   body select.print-only,   body small.print-only,   body span.print-only,   body strike.print-only,   body strong.print-only,   body sub.print-only,   body sup.print-only,   body textarea.print-only,   body tt.print-only,   body u.print-only,   body var.print-only {
+    display: inline; }
+  body a:visited {
+    background: transparent;
+    font-weight: 700;
+    text-decoration: underline; }

@@ -1,0 +1,18 @@
+
+body {
+  text-align: center; }
+  body .container {
+    text-align: left; }
+  * html body legend {
+    margin: -18px -8px 16px 0;
+    padding: 0; }
+  body ol {
+    margin-left: 2em; }
+  body sup {
+    vertical-align: text-top; }
+  body sub {
+    vertical-align: text-bottom; }
+  html>body p code {
+    *white-space: normal; }
+  body hr {
+    margin: -8px auto 11px; }

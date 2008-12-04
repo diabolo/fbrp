@@ -1,0 +1,20 @@
+=error_messages_for :session
+-form_tag session_path do 
+  %fieldset
+    %legend Login Details
+    %ol
+      %li                 
+        =label_tag :login, "Login or Email"
+        =text_field_tag :login 
+
+      %li
+        =label_tag :password
+        =password_field_tag :password
+
+      %li
+        =label_tag :remember_me
+        =check_box_tag 'remember_me', '1', @remember_me        
+  
+  %fieldset.submit
+    %legend submit
+    = submit_tag "Log in" 
