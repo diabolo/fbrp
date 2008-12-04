@@ -28,8 +28,8 @@ Story: Logging in
       And I should not have an auth_token cookie
       And I should not have a user id in my session store
     
-  Scenario: Anonymous user can log out.
-    Given I am an anonymous user
+  Scenario: Logged out user can log out.
+    Given I am logged out
      When I logout
      Then I should not be logged in
       And I should not have an auth_token cookie

@@ -30,39 +30,39 @@ Then /^there should be an account for Fred$/ do
 end
 
 # by default create named user with attributes done by convention
-When /^I create a user with login (.*)$/ do |login|
+When /^I create a user with login (\w*)$/ do |login|
   @user = User.generate!(:login => login, 
                          :password => login + "pass", 
                          :password_confirmation => login + "pass",
                          :email => login + "@example.com") 
 end
 
-When /^I register a user with login (.*)$/ do |login|
+When /^I register a user with login (\w*)$/ do |login|
   @user = User.find_by_login(login)
   @user.register! 
   @user.state.should == 'pending'  
   @user
 end
 
-When /^I activate a user with login (.*)$/ do |login|
+When /^I activate a user with login (\w*)$/ do |login|
   @user = User.find_by_login(login)
   @user.activate! 
   @user.state.should == 'active' 
   @user 
 end
 
-Given /^a registered user (.*) exists$/ do |user|    
+Given /^a registered user (\w*) exists$/ do |user|    
   When "I create a user with login #{user}"
    And "I register a user with login #{user}"
 end             
 
-Given /^an activated user (.*) exists$/ do |user|    
+Given /^an activated user (\w*) exists$/ do |user|    
   When "I create a user with login #{user}"
    And "I register a user with login #{user}"
    And "I activate a user with login #{user}" 
 end              
 
-Given /^an admin user (.*) exists$/ do |user|    
+Given /^an admin user (\w*) exists$/ do |user|    
   When "I create a user with login #{user}"
    And "I register a user with login #{user}"
    And "I activate a user with login #{user}" 
@@ -70,11 +70,6 @@ Given /^an admin user (.*) exists$/ do |user|
    @user.save!
    @user.should be_admin
 end             
-
-
-# Then /^I should not be logged in$/ do
-#   controller.logged_in?.should_not be_true
-# end
 
 Then /^Fred's details should be unchanged$/ do
   @user.should == User.find_by_login('Fred')  

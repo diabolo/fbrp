@@ -11,13 +11,13 @@ Feature: Account Creation
     
    
   Scenario: Anonymous user can create an account
-    Given I am an anonymous user
+    Given I am logged out
      When I signup as Fred
      Then I should see a confirmation
       And there should be an account for Fred 
 
   Scenario: Anonymous user can not duplicate a un-activated account
-    Given I am an anonymous user
+    Given I am logged out
       And a registered user Fred exists
      When I signup as Fred
      Then I should see an error
@@ -25,7 +25,7 @@ Feature: Account Creation
       And Fred's details should be unchanged
      
   Scenario: Anonymous user can not duplicate an activated account
-    Given I am an anonymous user
+    Given I am logged out
       And an activated user Fred exists
      When I signup as Fred
      Then I should see an error
@@ -33,7 +33,7 @@ Feature: Account Creation
       And Fred's details should be unchanged
 
   Scenario: Anonymous user can not create an account without ...
-    Given I am an anonymous user 
+    Given I am logged out 
      When I signup as Fred without password
      Then I should see an error
       And I should not be logged in
@@ -45,7 +45,7 @@ Feature: Account Creation
     
      
   Scenario: Anonymous user can not create an account with mismatched password & password_confirmation
-    Given I am an anonymous user
+    Given I am logged out
      When I signup as Fred with wrong confirmation
      Then I should see an error
       And I should not be logged in
