@@ -9,5 +9,8 @@
     /[if IE]
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
   %body
+    - flash.each do |key,value|
+      %div{:class => "#{key}", :id => :flash}= value 
+
     %h1 Welcome to Compass
     = yield
