@@ -115,7 +115,7 @@ describe UsersController do
     end
     
     it "should route users's 'destroy' action correctly" do
-      route_for(:controller => 'users', :action => 'destroy', :id => '1').should == "/users/1"
+      route_for(:controller => 'users', :action => 'destroy', :id => '1').should == "/users/1/destroy"
     end
   end
   

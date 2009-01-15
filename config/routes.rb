@@ -1,3 +1,12 @@
+class ActionController::Resources::Resource
+  protected
+    def add_default_actions
+      add_default_action(member_methods, :get, :edit)
+      add_default_action(member_methods, :get, :destroy)
+      add_default_action(new_methods, :get, :new)
+    end
+end
+
 ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
