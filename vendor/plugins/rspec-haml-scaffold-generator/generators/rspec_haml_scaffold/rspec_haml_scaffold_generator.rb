@@ -140,9 +140,9 @@ class RspecHamlScaffoldGenerator < Rails::Generator::NamedBase
     end
 
     def scaffold_views
-     %w[ index show new edit destroy]
+     %w[ index show new edit destroy _form ]
     end
-
+    
     def model_name 
       class_name.demodulize
     end

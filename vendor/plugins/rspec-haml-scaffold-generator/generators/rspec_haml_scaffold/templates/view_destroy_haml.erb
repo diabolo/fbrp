@@ -1,6 +1,12 @@
-%h1 Confirm Delete 
+%h1 Confirm Delete of <%= singular_name %>
+
+<% for attribute in attributes -%>
+%p
+  %b <%= attribute.column.human_name %>:
+  =h @<%= singular_name %>.<%= attribute.name %> 
+<% end -%>
 
 - form_for(<%= form_link_for(table_name, singular_name) %>, :html => {:method => :delete}) do |f| 
   %p Are you sure you want to delete the <%= singular_name %>?
-  %p= submit_tag "Yes - Delete this post"
+  %p= submit_tag "Yes - Delete this <%= singular_name %>"
   %p= link_to "No - go back", <%= path_for(table_name, singular_name, "index") %>

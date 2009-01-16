@@ -1,0 +1,15 @@
+= error_messages_for :<%= singular_name %> 
+
+- form_for(<%= form_link_for(table_name, singular_name) %>) do |f| 
+  %fieldset.attributes 
+    %legend 
+      <%= singular_name %> attributes
+    %ol
+<% for attribute in attributes -%>
+      %li
+        = f.label :<%= attribute.name %>
+        = f.<%= attribute.field_type %> :<%= attribute.name %> 
+<% end %>
+  %fieldset.submit
+    = f.submit "#{submit}"
+    
