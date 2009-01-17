@@ -5,3 +5,4 @@ doc/api
 doc/app
 config/database.yml
 vendor/plugins/doc/**/*
+public/stylesheets/*
