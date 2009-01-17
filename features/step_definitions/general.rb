@@ -1,3 +1,9 @@
+Given /there (?:is|are) (\d+)(?:\s*|\s*more\s*)(\S*)?$/ do |n, object|
+  klass = object.singularize.classify.constantize
+  n.to_i.times {klass.generate!}
+  klass.count.should >= (n.to_i)
+end
+
 When /^I visit (.*)$/ do |url|
   visit url
 end

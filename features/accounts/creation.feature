@@ -4,7 +4,9 @@ Feature: Account Creation
   I want users to be able to create an account
   So that users are encouraged to return to the site
    
-   
+  Scenario: We can create users for our features
+    Given there are 4 users
+
   Scenario: There is a signup page
     Given I visit signup
      Then I should see a form

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   generator_for :login, :start => 'login-1' do |prev|
     name, number = prev.split('-')
-    name + '-' + (number_to_i + 1)
+    name + '-' + (number.to_i + 1).to_s
   end
   
   generator_for :email, :start => 'test@domain.com' do |prev|
@@ -22,5 +22,6 @@ class User < ActiveRecord::Base
   generator_for :password_confirmation, :start => 'testxvcdg1' do |prev|
     prev.succ    
   end
+
   
 end
