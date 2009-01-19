@@ -16,7 +16,7 @@ class RspecHamlScaffoldGenerator < Rails::Generator::NamedBase
 
   def initialize(runtime_args, runtime_options = {})
     super
-
+    @name = @name.downcase
     @controller_name = @name.pluralize
 
     base_name, @controller_class_path, @controller_file_path, @controller_class_nesting, @controller_class_nesting_depth = extract_modules(@controller_name)
@@ -129,7 +129,7 @@ class RspecHamlScaffoldGenerator < Rails::Generator::NamedBase
     
     # Override with your own usage banner.
     def banner
-      "Usage: #{$0} rspec_haml_scaffold ModelName [field:type field:type]"
+      "Usage: #{$0} rspec_haml_scaffold modelName [field:type field:type]"
     end
 
     def add_options!(opt)
