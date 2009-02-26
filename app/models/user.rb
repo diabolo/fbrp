@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
-  
+
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -30,18 +30,18 @@ class User < ActiveRecord::Base
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
-  # uff.  this is really an authorization, not authentication routine.  
+  # uff.  this is really an authorization, not authentication routine.
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   #
-  def self.authenticate(login, password)  
+  def self.authenticate(login, password)
     if Authentication.email_regex.match(login)
-      u = find_in_state :first, :active, :conditions => {:email => login} # need to get the salt
-    else  
-      u = find_in_state :first, :active, :conditions => {:login => login} # need to get the salt
+      u = find_in_state :first, :active, :conditions => {:email => login.downcase} # need to get the salt
+    else
+      u = find_in_state :first, :active, :conditions => {:login => login.downcase} # need to get the salt
     end
     u && u.authenticated?(password) ? u : nil
-  end       
+  end
 
   def login=(value)
     write_attribute :login, (value ? value.downcase : nil)
@@ -50,17 +50,17 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
-  
+
   def self.find_by_login(login)
-    super(login.downcase)
+    find(:first, :conditions => ["login = ?", login.downcase])
   end
 
   def self.find_by_email(email)
-    super(email.downcase)
+    find(:first, :conditions => ["email = ?", email.downcase])
   end
 
   protected
-    
+
     def make_activation_code
         self.deleted_at = nil
         self.activation_code = self.class.make_token
