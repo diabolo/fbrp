@@ -50,6 +50,14 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
+  
+  def self.find_by_login(login)
+    super(login.downcase)
+  end
+
+  def self.find_by_email(email)
+    super(email.downcase)
+  end
 
   protected
     
