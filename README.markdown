@@ -11,15 +11,14 @@ Another one of those starter rails projects. This one has one interesting featur
 Dependencies
 ============
 
-There are a few things you'll need, I've not frozen gems or done anything nice yet
+You'll need to install the following gems
 
 1. rspec-rails
-1. cucumber
-1. object_daddy
-1. the very latest haml
+1. cucumber (currently a dependency of rspec-rails)
 1. the very latest compass
 
-All can be found here on github. Follow the installation instructions on the compass page for haml and compass.
+Compass currently requires the latest version of haml. Follow instructions from [here](http://github.com/chriseppstein/compass-rails-sample-application/tree/master)
+
 
 Apologies for depending on compass, its not necessary for the features, but it is something I want to use. You may need other stuff as well.
 
