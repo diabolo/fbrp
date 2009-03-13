@@ -4,11 +4,13 @@ require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/rails/world'
 Cucumber::Rails.use_transactional_fixtures
 
-require 'webrat/rails'
+require "webrat"
 
-# Comment out the next two lines if you're not using RSpec's matchers (should / should_not) in your steps.
+  Webrat.configure do |config|
+    config.mode = :rails
+end
+
 require 'cucumber/rails/rspec'
-require 'webrat/rspec-rails'
 
 # Make visible for testing
 ApplicationController.send(:public, :logged_in?, :current_user, :authorized?)
