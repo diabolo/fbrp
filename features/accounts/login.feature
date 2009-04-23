@@ -35,20 +35,19 @@ Story: Logging in
       And I should not have an auth_token cookie
       And I should not have a user id in my session store
 
-  Scenario: Log-in with bogus info should fail until it doesn't
-  # TODO These stories rely on a user called 'fred' with a password 'fredpass'. 
-  # It might be a good idea to remove this coupling
+  Scenario Outline: Log-in with bogus info should fail until it doesn't
 
-    Given an activated user Fred exists    
-     When I login as Fred with password
-     Then my login status should be out
-    
-    More Examples: 
-      | user | login | pass     | status |
-      | Fred | Fred  | haxor3   | out    |
-      | bill | bill  | haxor3   | out    |
-      | Fred | Fred  | peeppass | out    |
-      | Fred | Fred  | Fredpass | in     |
+    Given an activated user <user> exists    
+     When I login as <login> with <password>
+     Then my login status should be <status>
+
+    Examples: 
+      | user| login| password| status|
+      | Fred| Fred | haxor3  | out   |
+      | bill| bill | haxor3  | out   |
+      | Fred| Fred | peeppass| out   |
+      | Fred| Fred | Fredpass| in    |
+
     
   Scenario: Logged in user can log out.
     Given an activated user Fred exists    

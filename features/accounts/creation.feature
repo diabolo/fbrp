@@ -34,17 +34,18 @@ Feature: Account Creation
       And I should not be logged in
       And Fred's details should be unchanged
 
-  Scenario: Anonymous user can not create an account without ...
+
+  Scenario Outline: Anonymous user can not create an account without ...
     Given I am logged out 
-     When I signup as Fred without password
+     When I signup as <user> without <field>
      Then I should see an error
       And I should not be logged in
-    
-    More Examples: 
+
+    Examples: 
       |user | field |
       |Fred | login |
       |Fred | password_confirmation |
-    
+
      
   Scenario: Anonymous user can not create an account with mismatched password & password_confirmation
     Given I am logged out
