@@ -1,21 +1,3 @@
-# Single feature runners
-# specify your feature e.g.
-#   cucumber -p sw feature/webrat/admin/myfeature:xx
-
-# sw single feature webrat
-sw: -r features/support/env.rb -r features/step_definitions
-
-# ss single feature selenium
-ss: -r features/support/env.rb -r features/support/selenium.rb -r features/step_definitions 
-
-# Running all features
-# default runs all webrat features
-default: -r features/support/env.rb  -r features/step_definitions --format progress
-webrat: -r features/support/env.rb -r features/step_definitions
-
-# selenium only runs selenium features
-selenium: -r features/support/env.rb -r features/support/selenium.rb -r features/step_definitions features/selenium
-
 # Introducing obtuse naming convention for running all cucumber features with a formatter
 # cucumber -p yz
 #
@@ -25,7 +7,7 @@ selenium: -r features/support/env.rb -r features/support/selenium.rb -r features
 # Note progress and profile are faster and more compact
 
 
-wp: -r features/support/env.rb -r features/support/webrat.rb -r features/step_definitions features/webrat --format pretty  
-wr: -r features/support/env.rb -r features/support/webrat.rb -r features/step_definitions features/webrat --format progress 
-wf: -r features/support/env.rb -r features/support/webrat.rb -r features/step_definitions features/webrat --format profile 
+wp:  features --format pretty  
+wr:  features --format progress 
+wf:  features --format profile 
 
